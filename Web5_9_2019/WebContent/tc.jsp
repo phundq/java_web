@@ -7,6 +7,7 @@
 <title>Trang chu</title>
 </head>
 <body>
+<%@include file="Dau.jsp" %>
 	<table width="1000" align="center">
 		<tr>
 			<td colspan="3" bgcolor="green" >menu tren</td>
