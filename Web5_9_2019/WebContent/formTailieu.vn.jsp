@@ -195,7 +195,7 @@
                             <td>Tỉnh/ Thành phố</td>
                             <td>
                                 <select name="diaChi">
-                                    <option value="0" selected>Tinh</option>
+                                    <option value="0" selected>Tỉnh</option>
                                     <option value="1">TT Huế</option>
                                     <option value="2">Đà Nẵng</option>
                                     <option value="3">Quảng Nam</option>
@@ -215,8 +215,8 @@
                         </tr>
                         <tr>
                             <td colspan="4">
-                                <input type="submit" name="dangKy" value="Dang ky" class="btn-info rounded" required>
-                                <input class="ml-3" type="checkbox" name="xacNhan" checked> Toi dong y voi chinh sach va thoa thuan cua Tailieu.vn
+                                <input type="submit" name="dangKy" value="Đăng ký" class="btn-info rounded" required>
+                                <input class="ml-3" type="checkbox" name="xacNhan" checked> Tôi đồng ý với chính sách và thỏa thuận của Tailieu.vn
 
                             </td>
                         </tr>
