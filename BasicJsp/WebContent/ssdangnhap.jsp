@@ -27,14 +27,14 @@ height: 100%;
 }
 
 .container{
-height: 90%;
+height: 87%;
 align-content: center;
 font-family: 'Numans', sans-serif;
 }
 
 .card{
 height: 370px;
-margin-top: auto;
+margin-top: 14%;
 margin-bottom: auto;
 width: 400px;
 background-color: rgba(0,0,0,0.5) !important;
@@ -103,6 +103,16 @@ color: white;
 .links a{
 margin-left: 4px;
 }
+
+nav{
+position: fixed!important;
+width:100vw;
+height:46px;
+z-index: 99;
+top: 0px; 
+padding-right: 40px!important;
+}
+
 </style>
 </head>
 <!-- ------------------------------------------------------------------------------------------------------- -->
@@ -112,15 +122,18 @@ String un=null;
 if (session.getAttribute("un") != null) {
 	un= session.getAttribute("un").toString();
 }
+if (session.getAttribute("page") == null) {
+	session.setAttribute("page", "sshome.jsp");
+}
 %>
 <body class="">
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-		<ul class="navbar-nav w-100 d-flex flex-end justify-content-between">
-			<div class="d-flex flex-row"><li class="nav-item"><a class="nav-link" href="sshome.jsp">WebsiteName</a></li>
-			<li class="nav-item"><a class="nav-link" href="sstrang1.jsp">Trang 1</a></li>
-			<li class="nav-item"><a class="nav-link" href="sstrang2.jsp">Trang 2</a></li></div>
+		<ul class="navbar-nav w-100 d-flex flex-end justify-content-between align-items-center">
+			<div class="d-flex flex-row align-items-baseline" style="margin-top: -4px;"><li class="nav-item"><a class="nav-link text-warning" href="sshome.jsp"><span style="font-size: 28px;">Sach.org</span></a></li>
+			<li class="nav-item mx-3"><a class="nav-link" href="sstrang1.jsp">Chọn sách</a></li>
+			<li class="nav-item"><a class="nav-link" href="sstrang2.jsp">Giỏ hàng</a></li></div>
 			<div class="d-flex"><li class="nav-item  active"><a class="nav-link text-warning" href="ssdangnhap.jsp"><%=(session.getAttribute("un") != null) ? un :"Đăng nhập" %></a></li>
-			<li class="nav-item"><a class="nav-link btn btn-secondary ml-4" href="ssdangxuat.jsp">Đăng xuất</a>
+			<li class="nav-item"><a class="nav-link btn btn-secondary py-1 mt-1 ml-4" href="ssdangxuat.jsp">Đăng xuất</a>
 			</li>
 		</ul>
 	</nav>

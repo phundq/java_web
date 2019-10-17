@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="bean.sachbean"%>
 <%@page import="bo.sachbo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -10,42 +11,35 @@
 </head>
 <body>
 	<table align="left" width="1000px">
+
+		<%
+					sachbo sach = new sachbo();
+					ArrayList<sachbean>  ds = sach.getsach();
+					int ss = ds.size();
+					for(int i= 0; i<ss; i++){
+						sachbean s= ds.get(i);
+ 				%>
 		<tr>
 			<td>
-				<%
-					sachbo sach = new sachbo();
-					for (sachbean s : sach.getsach()) {
-				%> <a
-				href="htsach.jsp?ma=<%=s.getMasach()%>&ten=<%=s.getTensach()%>&tg=<%=s.getTacgia()%>&gia=<%=s.getGia()%>&anh=<%=s.getAnh()%>">
-					<%=s.getTensach()%>
-			</a>
-			<hr> <%
- 	}
- %>
+				<img alt="" src='<%=s.getAnh() %>'><br>
+				<%=s.getTensach() %><br>
+				<%=s.getTacgia() %><br>
+				<a href="mua.jsp?ms=<%=s.getMasach()%>&ts=<%=s.getTensach()%>&tg=<%=s.getTacgia()%>&gia=<%=s.getGia()%>"><img alt="" src="mua.jpg"></a>
 			</td>
-			<td >
-				<%
-					String ma = request.getParameter("ma");
-					String ten = request.getParameter("ten");
-					String tg = request.getParameter("tg");
-					String gia = request.getParameter("gia");
-					String anh = request.getParameter("anh");
-
-					if (ma == null)
-						out.print("mời chọn 1 đầu sách.....");
-					else {
-						out.print(ma + "<br>");
-						out.print(ten + "<br>");
-						out.print(tg + "<br>");
-						out.print(gia + "<br>");
-						out.print("<img src='" + anh + "'> <br>");
-
-					}
+			<td>
+				<%i++;
+					if(i<ss){
+						s=ds.get(i);
+					
 				%>
-
-
+				<img alt="" src='<%=s.getAnh() %>'><br>
+				<%=s.getTensach()%><br>
+				<%=s.getTacgia() %><br>
+				<a href="mua.jsp?ms=<%=s.getMasach()%>&ts=<%=s.getTensach()%>&tg=<%=s.getTacgia()%>&gia=<%=s.getGia()%>"><img alt="" src="mua.jpg"></a>
 			</td>
+			<%} %>
 		</tr>
+		<%} %>
 	</table>
 </body>
 </html>

@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="bo.sachbo"%>
+<%@page import="bean.sachbean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,32 +16,111 @@
 	crossorigin="anonymous">
 <title>Document</title>
 <style>
-td {
-	padding: 5px 15px;
+
+nav{
+position: fixed!important;
+width:100vw;
+height:46px;
+z-index: 99;
+top: 0px; 
+padding-right: 40px!important;
 }
 </style>
 </head>
 <%
-	if (session.getAttribute("un") == null) {
-		response.sendRedirect("ssdangnhap.jsp");
-	}
+	
 	
 		session.setAttribute("page", "sstrang1.jsp");
 %>
 
-<body class="">
+<body class="w-100">
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-		<ul class="navbar-nav w-100 d-flex flex-end justify-content-between">
-			<div class="d-flex flex-row"><li class="nav-item"><a class="nav-link" href="sshome.jsp">WebsiteName</a></li>
-			<li class="nav-item active"><a class="nav-link"
-				href="sstrang1.jsp">Trang 1</a></li>
-			<li class="nav-item"><a class="nav-link" href="sstrang2.jsp">Trang 2</a></li></div>
-			<div class="d-flex"><li class="nav-item"><a class="nav-link text-warning" href="ssdangnhap.jsp"><%=session.getAttribute("un") %></a></li>
-			<li class="nav-item"><a class="nav-link btn btn-secondary ml-4" href="ssdangxuat.jsp">Đăng xuất</a></div>
+		<ul class="navbar-nav w-100 d-flex flex-end justify-content-between align-items-center">
+			<div class="d-flex flex-row align-items-baseline" style="margin-top: -4px;"><li class="nav-item"><a class="nav-link text-warning" href="sshome.jsp"><span style="font-size: 28px;">Sach.org</span></a></li>
+			<li class="nav-item active mx-3"><a class="nav-link"	href="sstrang1.jsp">Chọn sách</a></li>
+			<li class="nav-item"><a class="nav-link" href="sstrang2.jsp">Giỏ hàng</a></li></div>
+			<div class="d-flex"><li class="nav-item"><a class="nav-link text-warning" href="ssdangnhap.jsp"><%=(session.getAttribute("un") != null) ? session.getAttribute("un") :"Đăng nhập" %></a></li>
+			<li class="nav-item"><a class="nav-link btn btn-secondary py-1 mt-1 ml-4" href="ssdangxuat.jsp">Đăng xuất</a></div>
 			</li>
 		</ul>
 	</nav>
+	<!-- end nav -->
+<div class="container pt-5">
 
+<div class="w-100 text-left mt-5">
+			<h3 class="text-body">Sách nổi bật</h3><hr>
+		</div>
+		<%
+					sachbo sach = new sachbo();
+					ArrayList<sachbean>  ds = sach.getsach();
+					int ss = ds.size();
+					for(int i= 0; i<ss; i++){
+						sachbean s= ds.get(i);
+ 		%>
+ 		
+		<div class="row text-center my-5 pt-4">
+		
+			<div class="col-md-3">
+				<div class="" style="width: 176px;height: 200px; margin:auto;">
+					<img class="w-100 h-100" alt="" src='<%=s.getAnh() %>'>
+				</div><br>
+				<span class="font-weight-bold"><%=s.getTensach() %></span><br>
+				<span class="text-body">Tác giả: </span><span class="text-primary"><%=s.getTacgia() %></span><br>
+				<span class="font-weight-bold">Giá bán: </span><span class="font-weight-bold text-danger"><%=s.getGia() %> đ</span><br>
+				<a href="mua.jsp?ms=<%=s.getMasach()%>&ts=<%=s.getTensach()%>&tg=<%=s.getTacgia()%>&gia=<%=s.getGia()%>"><img alt="" src="mua.jpg"></a>
+			</div>
+			<div class="col-md-3">
+				<%i++;
+					if(i<ss){
+						s=ds.get(i);
+					
+				%>
+				<div class="" style="width: 176px;height: 200px; margin:auto;">
+					<img class="w-100 h-100" alt="" src='<%=s.getAnh() %>'>
+				</div><br>
+				<span class="font-weight-bold"><%=s.getTensach() %></span><br>
+				<span class="text-body">Tác giả: </span><span class="text-primary"><%=s.getTacgia() %></span><br>
+				<span class="font-weight-bold">Giá bán: </span><span class="font-weight-bold text-danger"><%=s.getGia() %> đ</span><br>
+				<a href="mua.jsp?ms=<%=s.getMasach()%>&ts=<%=s.getTensach()%>&tg=<%=s.getTacgia()%>&gia=<%=s.getGia()%>"><img alt="" src="mua.jpg"></a>
+			</div>
+			
+			<%} %>
+			<div class="col-md-3">
+				<%i++;
+					if(i<ss){
+						s=ds.get(i);
+					
+				%>
+				<div class="" style="width: 176px;height: 200px; margin:auto;">
+					<img class="w-100 h-100" alt="" src='<%=s.getAnh() %>'>
+				</div><br>
+				<span class="font-weight-bold"><%=s.getTensach() %></span><br>
+				<span class="text-body">Tác giả: </span><span class="text-primary"><%=s.getTacgia() %></span><br>
+				<span class="font-weight-bold">Giá bán: </span><span class="font-weight-bold text-danger"><%=s.getGia() %> đ</span><br>	
+				<a href="mua.jsp?ms=<%=s.getMasach()%>&ts=<%=s.getTensach()%>&tg=<%=s.getTacgia()%>&gia=<%=s.getGia()%>"><img alt="" src="mua.jpg"></a>
+			</div>
+			
+			<%} %>
+			<div class="col-md-3">
+				<%i++;
+					if(i<ss){
+						s=ds.get(i);
+					
+				%>
+				<div class="" style="width: 176px;height: 200px; margin:auto;">
+					<img class="w-100 h-100" alt="" src='<%=s.getAnh() %>'>
+				</div><br>
+				<span class="font-weight-bold"><%=s.getTensach() %></span><br>
+				<span class="text-body">Tác giả: </span><span class="text-primary"><%=s.getTacgia() %></span><br>
+				<span class="font-weight-bold">Giá bán: </span><span class="font-weight-bold text-danger"><%=s.getGia() %> đ</span><br>	
+				<a href="mua.jsp?ms=<%=s.getMasach()%>&ts=<%=s.getTensach()%>&tg=<%=s.getTacgia()%>&gia=<%=s.getGia()%>"><img alt="" src="mua.jpg"></a>
+			</div>
+			
+			<%} %>
+		</div>
+		<%} %>
+	
+</div>
 
 
 
