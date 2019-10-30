@@ -8,7 +8,7 @@ public class sachdao {
 	
 	public ArrayList<sachbean> getsach(){
 		ArrayList<sachbean> ds = new ArrayList<sachbean>();
-		ds.add(new sachbean("s1", "Trải nghiệm&khát vọng CS", "Trần A", (long)65000, "b1.jpg"));
+		ds.add(new sachbean("s1", "Trải nghiệm,khát vọng CS", "Trần A", (long)65000, "b1.jpg"));
 		ds.add(new sachbean("s2", "Bí mật của may mắn", "Nguyễn Văn B", (long)66000, "b2.jpg"));
 		ds.add(new sachbean("s3", "Chắp cánh tuổi thơ", "Lê Long", (long)67000, "b3.jpg"));
 		ds.add(new sachbean("s4", "Hạt giống yêu thương", "Minh Tâm", (long)68000, "b4.jpg"));
