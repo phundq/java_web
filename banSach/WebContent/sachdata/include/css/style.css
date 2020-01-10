@@ -1,0 +1,71 @@
+
+  .dropdown:hover>.dropdown-menu {
+    display: block;
+    top: 100%;
+  }
+  .dropright:hover>.sub-menu {
+    display: block;
+   
+  }
+
+  .dropdown{
+      position: relative;
+  }
+  .dropdown-menu{
+      position: absolute;
+      width: 250px;
+      top:38px!important;
+      left: 0px;
+      padding:0px !important;
+  }
+  
+  .dropright{
+      position: relative;
+     
+  }
+  .sub-menu{
+      position: absolute;
+      top:-39px!important;
+      left: 247px;
+  }
+  .dropdown-item{
+      padding: 8px 10px!important;
+      border-bottom: 1px solid #C6C6C6;
+  }
+  .dropdown-toggle::after {
+    display:none;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+   font-size: 13px;
+    opacity: 0.7; /* Firefox */
+  }
+.border-light-blue-dark-3{
+    border: 1px solid #0277bd!important;
+}
+.carousel-control-next-icon{
+  border: 1px solid #0277bd;
+  padding: 30px 15px!important;
+  opacity: 0;
+  margin-left : 140px!important;
+  border-radius:2px ;
+}
+.carousel-control-prev-icon{
+  border: 1px solid #0277bd;
+  padding: 30px 15px!important;
+  opacity: 0;
+  margin-right : 140px!important;
+  border-radius:2px ;
+}
+#carouselExampleControls:hover  .carousel-control-prev-icon , #carouselExampleControls:hover .carousel-control-next-icon{
+ opacity: 1;
+}
+.carousel-control-next-icon:hover{
+  border: 2px solid #0277bd;
+}
+.carousel-control-prev-icon:hover{
+  border: 2px solid #0277bd;
+}
+.owl-carousel .item{
+  width: 210px!important;
+  margin: 20px 0px 10px 0px !important;
+}
